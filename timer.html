@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="time">10</div>
+    <button class="btn">暫停</button>
+    <script>
+        let t=9;
+        let time=document.querySelector('.time');
+        let btn=document.querySelector('.btn');
+        let flag=1;
+        let timerB=setInterval(function(){
+            time.innerHTML=t;
+            if(t<=0)
+            {
+                clearInterval(timerB);
+            }
+            t--;
+        },1000);
+        btn.addEventListener('click',function(){
+            if(flag==1)
+            {
+                
+                clearInterval(timerB);
+                btn.innerHTML='重開';
+                flag=0;
+                console.log(flag);
+            }
+            else
+            {
+                btn.innerHTML='暫停';
+                timerB=setInterval(function(){
+                time.innerHTML=t;
+            
+                if(t<=0)
+                {
+                   clearInterval(timerB);
+                }
+                t--;
+                
+                },1000);
+                flag=1;
+                console.log(flag);
+            }
+            
+        })
+    
+    </script>
+</body>
+</html>
